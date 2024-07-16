@@ -1,0 +1,113 @@
+import 'package:clase05_06_2024/entities/subject_entity.dart';
+import 'package:clase05_06_2024/settings/db_connection.dart';
+import 'package:flutter/material.dart';
+
+class SubjetCreate extends StatefulWidget {
+  @override
+  State<SubjetCreate> createState() => _SubjetCreateState();
+
+}class _SubjetCreateState extends State<SubjetCreate> {
+  final SubjetForm = GlobalKey<FormState>();
+  final NombreController = TextEditingController();
+  final CreditsController = TextEditingController();
+  final DescripcionController = TextEditingController();
+  final TeacherController = TextEditingController();
+  final DateController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Crear Asignatura'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Form(
+          key: SubjetForm,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: NombreController,
+                decoration: InputDecoration(labelText: 'Nombre:'),
+                validator: (value){
+              if (value == null || value.isEmpty){
+                return ' este campo es obligatorio';
+              }
+              return null;
+            },
+              ),
+                SizedBox(
+            height: 10,),
+              TextFormField(
+                controller: DateController,
+                decoration: InputDecoration(labelText: 'Fecha:'),
+                validator: (value){
+              if (value == null || value.isEmpty){
+                return ' este campo es obligatorio';
+              }
+              return null;
+            },
+              ),
+                SizedBox(
+            height: 10,),
+              TextFormField(
+                controller: CreditsController,
+                decoration: InputDecoration(labelText: 'Créditos:'),
+                validator: (value){
+              if (value == null || value.isEmpty){
+                return ' este campo es obligatorio';
+              }
+              return null;
+            },
+
+              ),  
+              SizedBox(
+            height: 10,),
+              TextFormField(
+                controller: DescripcionController,
+                decoration: InputDecoration(labelText: 'Descripción:'),
+                validator: (value){
+              if (value == null || value.isEmpty){
+                return ' este campo es obligatorio';
+              }
+              return null;
+            },
+              ),
+
+                SizedBox(
+            height: 10,),
+              TextFormField(
+                controller: TeacherController,
+                decoration: InputDecoration(labelText: 'Profesor:'),
+                validator: (value){
+              if (value == null || value.isEmpty){
+                return ' este campo es obligatorio';
+              }
+              return null;
+            },
+
+              ),
+              SizedBox(height: 20,),
+              ElevatedButton(onPressed: (){
+                insert();
+                Navigator.pushNamed(context, '/listSubjects');
+              }, child: Text('Insertar Materia'))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  insert () async {
+    print ('Llegue a la funcion');
+    if( SubjetForm.currentState!.validate()){
+      SubjetForm.currentState!.save();
+      var data = Subject(
+        name: NombreController.text, 
+        date: DateController.text, 
+        credits: CreditsController.text, 
+        description: DescripcionController.text, 
+        teacher: TeacherController.text);
+        print(await DbConnection.insert('Materia', data.toDictionary()));
+    }
+  }
+}
