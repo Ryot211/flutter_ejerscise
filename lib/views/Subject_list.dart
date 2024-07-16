@@ -1,4 +1,5 @@
 import 'package:clase05_06_2024/entities/subject_entity.dart';
+import 'package:clase05_06_2024/settings/db_connection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -34,7 +35,41 @@ class Subject_list extends StatelessWidget {
                         child: Row(
                           children: [
                             Expanded(child: Text(data[i].name)),
-                            IconButton(onPressed: (){Navigator.pushNamed(context,'Subject/edit', routeName)}, icon: )
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'Subject/edit',
+                                      arguments: data[i]);
+                                },
+                                icon: Icon(Icons.edit)),
+                            IconButton(
+                                onPressed: () => showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                          title:
+                                              const Text('Eliminar Registro'),
+                                          content: Text(
+                                              'Estas seguro de eliminar este registro?'),
+                                          actions: [
+                                            TextButton(
+                                                onPressed: () async {
+                                                  await DbConnection.delete(
+                                                      'Materia',
+                                                      data[i].id as int);
+                                                  Navigator.pushNamed(
+                                                      context, '/listSubjects');
+                                                },
+                                                child: Text('Aceptar')),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.pop(
+                                                    context, 'Cancelar');
+                                              },
+                                              child: Text('Cancelar'),
+                                            )
+                                          ],
+                                        )),
+                                icon: Icon(Icons.delete)),
                           ],
                         ),
                       );
