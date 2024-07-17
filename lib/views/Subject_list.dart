@@ -37,7 +37,7 @@ class Subject_list extends StatelessWidget {
                             Expanded(child: Text(data[i].name)),
                             IconButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, 'Subject/edit',
+                                  Navigator.pushNamed(context, '/Subject/edit',
                                       arguments: data[i]);
                                 },
                                 icon: Icon(Icons.edit)),
