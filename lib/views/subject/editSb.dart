@@ -41,7 +41,10 @@ class _SubjetEditState extends State<SubjetEdit> {
               children: [
                 TextFormField(
                   controller: NombreController,
-                  decoration: InputDecoration(labelText: 'Nombre:'),
+                  decoration: InputDecoration(
+                      labelText: 'Nombre:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return ' este campo es obligatorio';
@@ -54,7 +57,10 @@ class _SubjetEditState extends State<SubjetEdit> {
                 ),
                 TextFormField(
                   controller: DateController,
-                  decoration: InputDecoration(labelText: 'Fecha:'),
+                  decoration: InputDecoration(
+                      labelText: 'Fecha:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return ' este campo es obligatorio';
@@ -67,7 +73,10 @@ class _SubjetEditState extends State<SubjetEdit> {
                 ),
                 TextFormField(
                   controller: CreditsController,
-                  decoration: InputDecoration(labelText: 'Créditos:'),
+                  decoration: InputDecoration(
+                      labelText: 'Créditos:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return ' este campo es obligatorio';
@@ -80,7 +89,10 @@ class _SubjetEditState extends State<SubjetEdit> {
                 ),
                 TextFormField(
                   controller: DescripcionController,
-                  decoration: InputDecoration(labelText: 'Descripción:'),
+                  decoration: InputDecoration(
+                      labelText: 'Descripción:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return ' este campo es obligatorio';
@@ -93,7 +105,10 @@ class _SubjetEditState extends State<SubjetEdit> {
                 ),
                 TextFormField(
                   controller: TeacherController,
-                  decoration: InputDecoration(labelText: 'Profesor:'),
+                  decoration: InputDecoration(
+                      labelText: 'Profesor:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return ' este campo es obligatorio';

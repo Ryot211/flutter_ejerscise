@@ -34,8 +34,10 @@ class _ShopCreateState extends State<ShopCreate> {
                 children: [
                   TextFormField(
                     controller: NombreController,
-                    decoration:
-                        InputDecoration(labelText: 'Nombre de la tienda:'),
+                    decoration: InputDecoration(
+                        labelText: 'Nombre de la tienda:',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0))),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Por favor ingrese un nombre para la tienda';
@@ -43,9 +45,15 @@ class _ShopCreateState extends State<ShopCreate> {
                       return null;
                     },
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   TextFormField(
                     controller: UbicacionController,
-                    decoration: InputDecoration(labelText: 'Ubicación:'),
+                    decoration: InputDecoration(
+                        labelText: 'Ubicación:',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0))),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Por favor ingrese un ubicación para la tienda';
@@ -53,9 +61,13 @@ class _ShopCreateState extends State<ShopCreate> {
                       return null;
                     },
                   ),
+                  SizedBox(height: 20),
                   TextFormField(
                     controller: Tipo_ropaController,
-                    decoration: InputDecoration(labelText: 'Tipo de ropa'),
+                    decoration: InputDecoration(
+                        labelText: 'Tipo de ropa:',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0))),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Por favor ingrese un tipo de ropa para la tienda';
@@ -63,10 +75,13 @@ class _ShopCreateState extends State<ShopCreate> {
                       return null;
                     },
                   ),
+                  SizedBox(height: 20),
                   TextFormField(
                     controller: HorarioController,
-                    decoration:
-                        InputDecoration(labelText: 'Horario de la tienda'),
+                    decoration: InputDecoration(
+                        labelText: 'Horario de la tienda:',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0))),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Por favor ingrese el horario de la tienda';
@@ -74,10 +89,13 @@ class _ShopCreateState extends State<ShopCreate> {
                       return null;
                     },
                   ),
+                  SizedBox(height: 20),
                   TextFormField(
                     controller: Precio_promedioController,
                     decoration: InputDecoration(
-                        labelText: 'Precio promedio de la ropa:'),
+                        labelText: 'Precio promedio de la ropa:',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0))),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Por favor ingrese el precio promedio de la ropa ';
@@ -86,7 +104,7 @@ class _ShopCreateState extends State<ShopCreate> {
                     },
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   ElevatedButton(
                       onPressed: () {

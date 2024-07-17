@@ -74,6 +74,17 @@ class menu_ent extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 95, vertical: 12)),
                     child: Text('Tienda')),
+                SizedBox(height: 20),
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/listCirugia');
+                    },
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 95, vertical: 12)),
+                    child: Text('Cirugía')),
               ],
             ),
           ),

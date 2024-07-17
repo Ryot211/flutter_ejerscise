@@ -1,6 +1,9 @@
+import 'package:clase05_06_2024/views/Cirugia_list.dart';
 import 'package:clase05_06_2024/views/Course_list.dart';
 import 'package:clase05_06_2024/views/Shop_list.dart';
 import 'package:clase05_06_2024/views/Subject_list.dart';
+import 'package:clase05_06_2024/views/cirugia/editCr.dart';
+import 'package:clase05_06_2024/views/cirugia/new.dart';
 import 'package:clase05_06_2024/views/course/editC.dart';
 import 'package:clase05_06_2024/views/course/newc.dart';
 import 'package:clase05_06_2024/views/informacion/hoja.dart';
@@ -64,6 +67,9 @@ class MyApp extends StatelessWidget {
           '/Teacher/edit': (context) => TeacherEdit(),
           '/Shop/edit': (context) => ShopEdit(),
           '/Informacion': (context) => Informacion(),
+          '/listCirugia': (context) => Cirugia_list(),
+          '/Cirugia/create': (context) => CirugiaCreate(),
+          '/Cirugia/edit': (context) => CirugiaEdit(),
         });
   }
 }
