@@ -1,11 +1,13 @@
 import 'package:clase05_06_2024/entities/teacher_entiry.dart';
 import 'package:clase05_06_2024/settings/db_connection.dart';
 import 'package:flutter/material.dart';
-class TeacherEdit extends StatefulWidget{
+
+class TeacherEdit extends StatefulWidget {
   @override
   State<TeacherEdit> createState() => _TeacherEditState();
 }
-class _TeacherEditState extends State<TeacherEdit>{
+
+class _TeacherEditState extends State<TeacherEdit> {
   final TeacherForm = GlobalKey<FormState>();
   final NombreController = TextEditingController();
   final LastNameController = TextEditingController();
@@ -13,99 +15,113 @@ class _TeacherEditState extends State<TeacherEdit>{
   final EmailController = TextEditingController();
   final TelefonoController = TextEditingController();
   @override
-  Widget build(BuildContext context){
-    final args = ModalRoute
+  Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)?.settings.arguments as Teacher;
+    NombreController.text = args.name;
+    LastNameController.text = args.lastName;
+    DeparmentController.text = args.deparment;
+    EmailController.text = args.email;
+    TelefonoController.text = args.telefono.toString();
+    int id = args.id as int;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Create Teacher'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Form(
-          key: TeacherForm,
-          child: Column(
-            children: [
+        appBar: AppBar(
+          title: Text('Create Teacher'),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Form(
+            key: TeacherForm,
+            child: Column(children: [
               TextFormField(
                 controller: NombreController,
                 decoration: InputDecoration(labelText: 'Nombre:'),
-                validator: (value){
-              if (value == null || value.isEmpty){
-                return ' este campo es obligatorio';
-              }
-              return null;
-            },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return ' este campo es obligatorio';
+                  }
+                  return null;
+                },
               ),
-                SizedBox(
-            height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 controller: LastNameController,
-                decoration:  InputDecoration(labelText: 'Apellido:'),
-                validator: (value){
-              if (value == null || value.isEmpty){
-                return ' este campo es obligatorio';
-              }
-              return null;
-            },
+                decoration: InputDecoration(labelText: 'Apellido:'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return ' este campo es obligatorio';
+                  }
+                  return null;
+                },
               ),
-                SizedBox(
-            height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 controller: DeparmentController,
-                decoration:  InputDecoration(labelText: 'Departamento:'),
-                validator: (value){
-              if (value == null || value.isEmpty){
-                return ' este campo es obligatorio';
-              }
-              return null;
-            },
+                decoration: InputDecoration(labelText: 'Departamento:'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return ' este campo es obligatorio';
+                  }
+                  return null;
+                },
               ),
-                SizedBox(
-            height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 controller: EmailController,
                 decoration: InputDecoration(labelText: 'Correo electronico:'),
-                validator: (value){
-              if (value == null || value.isEmpty){
-                return ' este campo es obligatorio';
-              }
-              return null;
-            },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return ' este campo es obligatorio';
+                  }
+                  return null;
+                },
               ),
-                SizedBox(
-            height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextFormField(
                 controller: TelefonoController,
                 decoration: InputDecoration(labelText: 'Telefono:'),
-                validator: (value){
-              if (value == null || value.isEmpty){
-                return ' este campo es obligatorio';
-              }
-              return null;
-            },
-                
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return ' este campo es obligatorio';
+                  }
+                  return null;
+                },
               ),
-              SizedBox (height: 20,),
-              ElevatedButton(onPressed: (){
-                insert();
-                Navigator.of(context).pushNamed('/listTeacher'); 
-              }, child: Text('Insertar Profesor'))
-            ]
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    edit(id);
+                    Navigator.of(context).pushNamed('/listTeacher');
+                  },
+                  child: Text('Insertar Profesor'))
+            ]),
           ),
-      ),
-    ));
+        ));
   }
-  insert() async {
-    print ('Llegue a la funcion');
-    if(TeacherForm.currentState!.validate()){
+
+  edit(int id) async {
+    print('Llegue a la funcion');
+    if (TeacherForm.currentState!.validate()) {
       TeacherForm.currentState!.save();
       var data = Teacher(
-        name: NombreController.text, 
-        lastName: LastNameController.text, 
-        deparment: DeparmentController.text, 
-        email: EmailController.text, 
+        id: id,
+        name: NombreController.text,
+        lastName: LastNameController.text,
+        deparment: DeparmentController.text,
+        email: EmailController.text,
         telefono: TelefonoController.hashCode,
-        );
-        print(await DbConnection.insert('Profesor', data.toDictionary()));
+      );
+      print(await DbConnection.update('Profesor', data.toDictionary(), id));
     }
   }
 }

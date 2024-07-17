@@ -13,6 +13,7 @@ import 'package:clase05_06_2024/views/student/new.dart';
 import 'package:clase05_06_2024/views/subject/editSb.dart';
 import 'package:clase05_06_2024/views/subject/news.dart';
 import 'package:clase05_06_2024/views/Teacher_list.dart';
+import 'package:clase05_06_2024/views/teacher/editTe.dart';
 import 'package:clase05_06_2024/views/teacher/newt.dart';
 import 'package:flutter/material.dart'; //importar la libreria para el diseño de la interfaz
 
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
           // editar un curso
           '/Course/edit': (context) => CourseEdit(),
           '/Subject/edit': (context) => SubjetEdit(),
-          
+          '/Teacher/edit': (context) => TeacherEdit(),
         });
   }
 }
