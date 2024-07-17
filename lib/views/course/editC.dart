@@ -27,83 +27,113 @@ class _CourseEditState extends State<CourseEdit> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create Course'),
+        title: Text(
+          'Editar Curso',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.black,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Form(
-          key: CourseForm,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: NombreController,
-                decoration: InputDecoration(labelText: 'Nombre: '),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: DescripcionController,
-                decoration: InputDecoration(labelText: 'Descripcion:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: CreditsController,
-                decoration: InputDecoration(labelText: 'Credits:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: UbicationController,
-                decoration: InputDecoration(labelText: 'Ubication:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: EncargadoController,
-                decoration: InputDecoration(labelText: 'Encargado:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    edit(id);
-                    Navigator.pushNamed(context, '/listCourses');
+      body: Container(
+        color: Color.fromARGB(255, 194, 242, 250),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Form(
+            key: CourseForm,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: NombreController,
+                  decoration: InputDecoration(
+                      labelText: 'Nombre: ',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
                   },
-                  child: Text('Insertar Curso'))
-            ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: DescripcionController,
+                  decoration: InputDecoration(
+                      labelText: 'Descripcion:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: CreditsController,
+                  decoration: InputDecoration(
+                      labelText: 'Credits:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: UbicationController,
+                  decoration: InputDecoration(
+                      labelText: 'Ubicacion:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: EncargadoController,
+                  decoration: InputDecoration(
+                      labelText: 'Encargado:',
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 14,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      edit(id);
+                      Navigator.pushNamed(context, '/listCourses');
+                    },
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 80, vertical: 12)),
+                    child: Text('Actualizar Curso'))
+              ],
+            ),
           ),
         ),
       ),

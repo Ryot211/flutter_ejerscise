@@ -26,85 +26,97 @@ class _TeacherEditState extends State<TeacherEdit> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Create Teacher'),
+          title: Text(
+            'Editar Profesor',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.black,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Form(
-            key: TeacherForm,
-            child: Column(children: [
-              TextFormField(
-                controller: NombreController,
-                decoration: InputDecoration(labelText: 'Nombre:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: LastNameController,
-                decoration: InputDecoration(labelText: 'Apellido:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: DeparmentController,
-                decoration: InputDecoration(labelText: 'Departamento:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: EmailController,
-                decoration: InputDecoration(labelText: 'Correo electronico:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: TelefonoController,
-                decoration: InputDecoration(labelText: 'Telefono:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    edit(id);
-                    Navigator.of(context).pushNamed('/listTeacher');
+        body: Container(
+          color: Color.fromARGB(255, 194, 242, 250),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Form(
+              key: TeacherForm,
+              child: Column(children: [
+                TextFormField(
+                  controller: NombreController,
+                  decoration: InputDecoration(labelText: 'Nombre:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
                   },
-                  child: Text('Insertar Profesor'))
-            ]),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: LastNameController,
+                  decoration: InputDecoration(labelText: 'Apellido:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: DeparmentController,
+                  decoration: InputDecoration(labelText: 'Departamento:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: EmailController,
+                  decoration: InputDecoration(labelText: 'Correo electronico:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: TelefonoController,
+                  decoration: InputDecoration(labelText: 'Telefono:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      edit(id);
+                      Navigator.of(context).pushNamed('/listTeacher');
+                    },
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 80, vertical: 12)),
+                    child: Text('Actualizar Profesor'))
+              ]),
+            ),
           ),
         ));
   }

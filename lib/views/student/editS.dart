@@ -23,50 +23,68 @@ class _StudentEditState extends State<StudentEdit> {
     int id = args.id as int;
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Editar Estudiante'),
+          title: const Text(
+            'Editar Estudiante',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.black,
         ),
-        body: Padding(
-          //ESTABLECER MARGENES
-          padding:
-              const EdgeInsets.all(20), //TODOS LOS MARGENES DE 20 DE SEPARACION
-          child: Form(
-              key: studentForm,
-              //CREAR UN WIDGET PARA FORMULARIOS
-              child: Column(
-                //AÑADO UNA COLUMNA PARA INVOLUCRAR
-                children: [
-                  TextFormField(
-                    controller: nombreController,
-                    decoration: InputDecoration(labelText: 'Nombre'),
-                    validator: (value) {
-                      //PROGRAMAR UNA FUNCION DE VALIDACION
-                      if (value == null || value.isEmpty) {
-                        return 'Este campo es requerido';
-                      }
-                      return null;
-                    },
-                  ), //CAJA DE TEXTO ENLAZADA AL FORMULARIO
-                  SizedBox(height: 20), //AGREGAR ESPACIO
-                  TextFormField(
-                    controller: apellidoController,
-                    decoration: InputDecoration(labelText: 'Apellido'),
-                    validator: (value) {
-                      //PROGRAMAR UNA FUNCION DE VALIDACION
-                      if (value == null || value.isEmpty) {
-                        return 'Este campo es requerido';
-                      }
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                      onPressed: () {
-                        edit(id);
-                        Navigator.of(context).pushNamed('/list');
+        body: Container(
+          color: Color.fromARGB(255, 194, 242, 250),
+          child: Padding(
+            //ESTABLECER MARGENES
+            padding: const EdgeInsets.all(
+                20), //TODOS LOS MARGENES DE 20 DE SEPARACION
+            child: Form(
+                key: studentForm,
+                //CREAR UN WIDGET PARA FORMULARIOS
+                child: Column(
+                  //AÑADO UNA COLUMNA PARA INVOLUCRAR
+                  children: [
+                    TextFormField(
+                      controller: nombreController,
+                      decoration: InputDecoration(
+                          labelText: 'Nombre',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20.0))),
+                      validator: (value) {
+                        //PROGRAMAR UNA FUNCION DE VALIDACION
+                        if (value == null || value.isEmpty) {
+                          return 'Este campo es requerido';
+                        }
+                        return null;
                       },
-                      child: Text('Insertar Etudiante'))
-                ],
-              )),
+                    ), //CAJA DE TEXTO ENLAZADA AL FORMULARIO
+                    SizedBox(height: 20), //AGREGAR ESPACIO
+                    TextFormField(
+                      controller: apellidoController,
+                      decoration: InputDecoration(
+                          labelText: 'Apellido',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20.0))),
+                      validator: (value) {
+                        //PROGRAMAR UNA FUNCION DE VALIDACION
+                        if (value == null || value.isEmpty) {
+                          return 'Este campo es requerido';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                        onPressed: () {
+                          edit(id);
+                          Navigator.of(context).pushNamed('/list');
+                        },
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.blue,
+                            foregroundColor: Colors.white,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 80, vertical: 12)),
+                        child: Text('Actualizar Etudiante'))
+                  ],
+                )),
+          ),
         ));
   }
 

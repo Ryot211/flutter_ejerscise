@@ -25,86 +25,98 @@ class _SubjetEditState extends State<SubjetEdit> {
     int id = args.id as int;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Editar Asignatura'),
+        title: Text(
+          'Editar Asignatura',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.black,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Form(
-          key: SubjetForm,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: NombreController,
-                decoration: InputDecoration(labelText: 'Nombre:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: DateController,
-                decoration: InputDecoration(labelText: 'Fecha:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: CreditsController,
-                decoration: InputDecoration(labelText: 'Créditos:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: DescripcionController,
-                decoration: InputDecoration(labelText: 'Descripción:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextFormField(
-                controller: TeacherController,
-                decoration: InputDecoration(labelText: 'Profesor:'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return ' este campo es obligatorio';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    edit(id);
-                    Navigator.pushNamed(context, '/listSubjects');
+      body: Container(
+        color: Color.fromARGB(255, 194, 242, 250),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Form(
+            key: SubjetForm,
+            child: Column(
+              children: [
+                TextFormField(
+                  controller: NombreController,
+                  decoration: InputDecoration(labelText: 'Nombre:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
                   },
-                  child: Text('Insertar Materia'))
-            ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: DateController,
+                  decoration: InputDecoration(labelText: 'Fecha:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: CreditsController,
+                  decoration: InputDecoration(labelText: 'Créditos:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: DescripcionController,
+                  decoration: InputDecoration(labelText: 'Descripción:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  controller: TeacherController,
+                  decoration: InputDecoration(labelText: 'Profesor:'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return ' este campo es obligatorio';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      edit(id);
+                      Navigator.pushNamed(context, '/listSubjects');
+                    },
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 80, vertical: 12)),
+                    child: Text('Actualizar Materia'))
+              ],
+            ),
           ),
         ),
       ),
