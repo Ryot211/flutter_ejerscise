@@ -3,6 +3,7 @@ import 'package:clase05_06_2024/views/Shop_list.dart';
 import 'package:clase05_06_2024/views/Subject_list.dart';
 import 'package:clase05_06_2024/views/course/editC.dart';
 import 'package:clase05_06_2024/views/course/newc.dart';
+import 'package:clase05_06_2024/views/informacion/hoja.dart';
 import 'package:clase05_06_2024/views/inicio.dart';
 import 'package:clase05_06_2024/views/Student_list.dart';
 import 'package:clase05_06_2024/views/menu.dart';
@@ -61,7 +62,8 @@ class MyApp extends StatelessWidget {
           '/Course/edit': (context) => CourseEdit(),
           '/Subject/edit': (context) => SubjetEdit(),
           '/Teacher/edit': (context) => TeacherEdit(),
-          '/Shop/edit' :(context) => ShopEdit(),
+          '/Shop/edit': (context) => ShopEdit(),
+          '/Informacion': (context) => Informacion(),
         });
   }
 }

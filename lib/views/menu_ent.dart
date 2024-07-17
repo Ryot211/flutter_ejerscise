@@ -79,6 +79,12 @@ class menu_ent extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/Informacion');
+        },
+        child: Icon(Icons.person),
+      ),
     );
   }
 }
