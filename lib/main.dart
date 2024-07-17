@@ -7,6 +7,7 @@ import 'package:clase05_06_2024/views/inicio.dart';
 import 'package:clase05_06_2024/views/Student_list.dart';
 import 'package:clase05_06_2024/views/menu.dart';
 import 'package:clase05_06_2024/views/menu_ent.dart';
+import 'package:clase05_06_2024/views/shop/editSh.dart';
 import 'package:clase05_06_2024/views/shop/news.dart';
 import 'package:clase05_06_2024/views/student/editS.dart';
 import 'package:clase05_06_2024/views/student/new.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
           '/Course/edit': (context) => CourseEdit(),
           '/Subject/edit': (context) => SubjetEdit(),
           '/Teacher/edit': (context) => TeacherEdit(),
+          '/Shop/edit' :(context) => ShopEdit(),
         });
   }
 }
