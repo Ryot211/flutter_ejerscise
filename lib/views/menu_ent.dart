@@ -6,7 +6,7 @@ class menu_ent extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Menu Entidades',
+          'Menú Entidades',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.black,
