@@ -1,4 +1,5 @@
 import 'package:clase05_06_2024/views/Cirugia_list.dart';
+import 'package:clase05_06_2024/views/Country_list.dart';
 import 'package:clase05_06_2024/views/Course_list.dart';
 import 'package:clase05_06_2024/views/Shop_list.dart';
 import 'package:clase05_06_2024/views/Subject_list.dart';
@@ -70,6 +71,8 @@ class MyApp extends StatelessWidget {
           '/listCirugia': (context) => Cirugia_list(),
           '/Cirugia/create': (context) => CirugiaCreate(),
           '/Cirugia/edit': (context) => CirugiaEdit(),
+          // Listar datos del APi
+          '/listCountry': (context) => Country_list(),
         });
   }
 }

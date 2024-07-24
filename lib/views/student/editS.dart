@@ -74,7 +74,6 @@ class _StudentEditState extends State<StudentEdit> {
                     ElevatedButton(
                         onPressed: () {
                           edit(id);
-                          Navigator.of(context).pushNamed('/list');
                         },
                         style: TextButton.styleFrom(
                             backgroundColor: Colors.blue,
@@ -89,6 +88,23 @@ class _StudentEditState extends State<StudentEdit> {
   }
 
   edit(int id) async {
+    print("Llegue a la funcion"); // imprimir un mensaje
+    if (studentForm.currentState!.validate()) {
+      // validar un formulario
+      studentForm.currentState!.save(); //grabar el esatdo del formulario
+      var data = Student(
+          // crear un objetco  con instancia de Student
+          id: id,
+          name: nombreController.text,
+          lastName: apellidoController.text);
+      await DbConnection.update('Estudiantes', data.toDictionary(),
+          id); // llamar al metodo actualizar
+      Navigator.pushNamed(context, '/list'); //redirigir al listad
+    }
+  }
+
+/*
+  edit(int id) async {
     print('Llegue a la funcion');
     if (studentForm.currentState!.validate()) {
       studentForm.currentState!.save(); //ALMACENAR EL ESTADO ACTUAL
@@ -100,5 +116,5 @@ class _StudentEditState extends State<StudentEdit> {
       //LLAMADO A LA FUNCION INSERT
       print(await DbConnection.update('Estudiantes', data.toDictionary(), id));
     } //VALIDANDO LAS CAJAS DE TEXTO
-  }
+  }*/
 }
