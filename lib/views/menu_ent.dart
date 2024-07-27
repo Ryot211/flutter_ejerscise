@@ -96,6 +96,17 @@ class menu_ent extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 95, vertical: 12)),
                     child: Text('Paises')),
+                SizedBox(height: 20),
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/listJoker');
+                    },
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 95, vertical: 12)),
+                    child: Text('Chistes')),
               ],
             ),
           ),

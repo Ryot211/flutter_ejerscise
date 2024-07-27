@@ -1,6 +1,7 @@
 import 'package:clase05_06_2024/views/Cirugia_list.dart';
 import 'package:clase05_06_2024/views/Country_list.dart';
 import 'package:clase05_06_2024/views/Course_list.dart';
+import 'package:clase05_06_2024/views/Joker_list.dart';
 import 'package:clase05_06_2024/views/Shop_list.dart';
 import 'package:clase05_06_2024/views/Subject_list.dart';
 import 'package:clase05_06_2024/views/cirugia/editCr.dart';
@@ -73,6 +74,8 @@ class MyApp extends StatelessWidget {
           '/Cirugia/edit': (context) => CirugiaEdit(),
           // Listar datos del APi
           '/listCountry': (context) => Country_list(),
+          // listar datos del API JOKER
+          '/listJoker': (context) => JokerList(),
         });
   }
 }
